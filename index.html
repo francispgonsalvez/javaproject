@@ -38,7 +38,7 @@
                     </div>
                 </div>
 <!---------------------------------------main page----------------------------------------------------------------------->                
-                <div class="container">
+                <div class="page">
                     <div class="main-page">
                         <div class="header">
                             <div class="heading">
@@ -56,6 +56,7 @@
                         </div>
                         <div class="list">
                             <div class="selector">
+                              <div class="list-header">
                                 <div class="num-select">
                                     <label>Employees List</label>
                                     <select id="select" class="select">
@@ -72,11 +73,152 @@
                                     </select>
                                     <span>of 10</span>
                                 </div>
-                                <div class="add-button">
-                                    <button type="button" class="btn btn-primary">Add Employee</button>
+                                            <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                      Add Employee
+                                    </button>
+                                  </div>
+<!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Employee</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form id="formmodal" method="post" onsubmit="return loop()">
+                                    <div class="row-12">
+                                      <div class="upload">
+                                        <input type="file" class="form-control" id="customFile" />
+                                        <div class="text">
+                                          <i class="fa-solid fa-cloud-arrow-up"></i>
+                                          <h1>Upload Image</h1>
+                                          <p>PNG, JPG files are allowed</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <label for="validationCustom04" class="form-label">Salutation<span>*</span></label>
+                                            <select class="form-select" id="salutation" required>
+                                              <option disabled selected value="">Select</option>
+                                              <option>Mr.</option>
+                                              <option>Mrs.</option>
+                                              <option>Ms.</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                              Please select a valid state.
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                              <label for="validationCustom01" class="form-label">First name<span>*</span></label>
+                                              <input type="text" class="form-control" id="firstname" required>
+                                              <div class="valid-feedback">
+                                                Looks good!
+                                              </div>
+                                            </div>
+                                            <div class="col">
+                                              <label for="validationCustom02" class="form-label">Last name<span>*</span></label>
+                                              <input type="text" class="form-control" id="lastname" required>
+                                              <div class="valid-feedback">
+                                                Looks good!
+                                              </div>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col">
+                                              <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mail@simmmple.com">
+                                            </div>
+                                            <div class="form-outline col">
+                                              <label class="form-label" for="typePhone">Phone number input<span>*</span></label>
+                                              <input type="tel" id="typePhone" class="form-control" placeholder="enter mobile number"/>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                          <div class="row"><label>Date of birth<span>*</span></label></div>   
+                                          <input class="form-date" type="date" name="date" id="date">
+                                        </div>
+                                        <div class="col">
+                                          <div class="row"><label>Gender<span>*</span></label></div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                                            <label class="form-check-label" for="inlineRadio1">male</label>
+                                        </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                                            <label class="form-check-label" for="inlineRadio2">female</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col">
+                                        <label for="Username" class="form-label">Username<span>*</span></label>
+                                        <input type="text" class="form-control" id="Username" placeholder="Username">
+                                      </div>
+                                      <div class="form-outline col">
+                                        <label class="form-label" for="password">Password<span>*</span></label>
+                                        <input type="password" id="password" class="form-control" placeholder="password"/>
+                                      </div>
+                                    </div>
+                                        <form class="row">
+                                          <div class="col">
+                                              <div class="mb-3">
+                                                  <label for="TextInput" class="form-label">Qualifications</label>
+                                                  <input type="text" id="TextInput" class="form-control" placeholder="enter qualifications">
+                                                </div>
+                                          </div>
+                                            <div class="col">
+                                                <label for="inputAddress2" class="form-label">Address<span>*</span></label>
+                                                <input type="text" class="form-control" id="inputAddress2" placeholder="enter address">
+                                              </div>
+                                            <div class="row">  
+                                              <div class="col">
+                                                <label for="inputcountry" class="form-label">Country<span>*</span></label>
+                                                <select id="inputcountry" class="form-select">
+                                                  <option disabled selected>select country</option>
+                                                  <option>USA</option>
+                                                  <option>India</option>
+                                                  <option>UAE</option>
+                                                </select>
+                                              </div>
+                                              <div class="col">
+                                                <label for="inputState" class="form-label">State<span>*</span></label>
+                                                <select id="inputState" class="form-select">
+                                                  <option disabled selected>select state</option>
+                                                  <option>IL</option>
+                                                  <option>TX</option>
+                                                  <option>WA</option>
+                                                  <option>Kerala</option>
+                                                </select>
+                                              </div>
+                                            </div> 
+                                            <div class="row">
+                                              <div class="col">
+                                                <label for="inputCity" class="form-label">City<span>*</span></label>
+                                                <input type="text" class="form-control" id="inputCity" placeholder="enter city">
+                                              </div>
+                                            
+                                              <div class="col">
+                                                <label for="inputpin" class="form-label">Pin/Zip<span>*</span></label>
+                                                <input type="text" class="form-control" id="inputpin" placeholder="enter pin/zip">
+                                              </div>
+                                  </div>
+                                  
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                                  </div>
+                                </form>
                                 </div>
+                                </div>
+                                </div>
+
                             </div>
                             <div class="list-table">
+                              <div class="table-responsive">
                                 <table class="table caption-top">
                                     <thead class="tablehead">
                                       <tr>
@@ -85,23 +227,23 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Gender</th>
-                                        <th scope="col">DOB</th>
+                                        <th scope="col">State</th>
                                         <th scope="col">Country</th>
                                         <th scope="col"> </th>
                                       </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="employee-table">
                                       <tr>
-                                        <th scope="row" class="sl-no">#01</th>
-                                        <td><img src="project.img/mic.dp.png"> Michael Johnson</td>
-                                        <td>michaeljohnson@example.com</td>
-                                        <td>5551234567</td>
-                                        <td>Male</td>
-                                        <td>10 December 1985</td>
-                                        <td>USA</td>
+                                        <th></th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
                                       </tr>
-                                      <tr>
+                                      <!-- <tr>
                                         <th scope="row" class="slno">#02</th>
                                         <td><img src="project.img/emily.dp.png"> Emily Wilson</td>
                                         <td>emilywilson@example.com</td>
@@ -109,9 +251,16 @@
                                         <td>Female</td>
                                         <td>10 August 1992</td>
                                         <td>Canada</td>
-                                        <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                        <td><div class="btn-group dropstart">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="option">
+                                              <i class="fa-solid fa-ellipsis"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              Dropdown menu links
+                                            </ul>
+                                          </div></td>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#03</th>
                                         <td><img src="project.img/david.dp.png"> David Brown</td>
                                         <td>davidbrown@example.com</td>
@@ -120,8 +269,8 @@
                                         <td>12 May 1990</td>
                                         <td>Japan</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#04</th>
                                         <td><img src="project.img/dr.mj.dp.png"> Michael Johnson</td>
                                         <td>michaeljohnson@example.com</td>
@@ -130,18 +279,18 @@
                                         <td>22 September 1988</td>
                                         <td>India</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#05</th>
-                                        <td>Ms. Milly Johnson</td>
+                                        <td><img src="project.img/mic.dp.png">Ms. Milly Johnson</td>
                                         <td>millyjohnson@example.com</td>
                                         <td>7638492034</td>
                                         <td>Female</td>
                                         <td>06 January 1994</td>
                                         <td>USA</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#06</th>
                                         <td><img src="project.img/aze.dp.png"> Azeem Zai</td>
                                         <td>azeemzai@example.com</td>
@@ -150,8 +299,8 @@
                                         <td>28 April 1987</td>
                                         <td>USA</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#07</th>
                                         <td><img src="project.img/maddy.dp.png"> Maddison Johnson</td>
                                         <td>michaeljohnson@example.com</td>
@@ -160,18 +309,18 @@
                                         <td>14 October 1993</td>
                                         <td>UAE</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#08</th>
-                                        <td>Ms. David Brown</td>
+                                        <td><img src="project.img/mic.dp.png">Ms. David Brown</td>
                                         <td>michaeljohnson@example.com</td>
                                         <td>9876543210</td>
                                         <td>Female</td>
                                         <td>10 December 1985</td>
                                         <td>India</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr>
+                                      </tr> -->
+                                      <!-- <tr>
                                         <th scope="row" class="sl.no">#09</th>
                                         <td><img src="project.img/mic.dp.png"> Michael Johnson</td>
                                         <td>michaeljohnson@example.com</td>
@@ -180,8 +329,8 @@
                                         <td>10 December 1985</td>
                                         <td>USA</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
-                                      <tr class="last-person">
+                                      </tr> -->
+                                      <!-- <tr class="last-person">
                                         <th scope="row" class="sl-no">#10</th>
                                         <td><img src="project.img/emily.dp.png"> Emily Wilson</td>
                                         <td>emilywilson@example.com</td>
@@ -190,10 +339,12 @@
                                         <td>10 August 1992</td>
                                         <td>Canada</td>
                                         <td><button><i class="fa-solid fa-ellipsis"></i></button></td>
-                                      </tr>
+                                      </tr> -->
                                     </tbody>
                                   </table>
                             </div>
+                            </div>
+                        </div>
                         </div>
                         <div class="nextpage-btn">
                             <button><i class="fa-solid fa-angles-left"></i></button>
@@ -206,7 +357,7 @@
                             <button><i class="fa-solid fa-angle-right"></i></button>
                             <button><i class="fa-solid fa-angles-right"></i></button>
                         </div>
-                    </div>
+                    
                     <div class="footer">
                         <div class="main-footer">
                             <footer>
@@ -218,129 +369,684 @@
                             </footer>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-<!----------------------------------form page---------------------------------------------------------------------------->
-        <div class="main-container">
-            <div class="container l">
-            <div class="row">
-                <form class="col col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                  <div class="details">
-                  <div class="row">
-                      <h1>Add Employee</h1>
-                  </div>
-                  <div class="row-12">
-                    <div class="upload">
-                      <input type="file" class="form-control" id="customFile" />
-                      <div class="text">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <h1>Upload Image</h1>
-                        <p>PNG, JPG files are allowed</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-3">
-                          <label for="validationCustom04" class="form-label">Salutation<span>*</span></label>
-                          <select class="form-select" id="validationCustom04" required>
-                            <option selected disabled value="">Select</option>
-                            <option>...</option>
-                          </select>
-                          <div class="invalid-feedback">
-                            Please select a valid state.
-                          </div>
-                        </div>
-                        <div class="col">
-                            <label for="validationCustom01" class="form-label">First name<span>*</span></label>
-                            <input type="text" class="form-control" id="validationCustom01" required>
-                            <div class="valid-feedback">
-                              Looks good!
-                            </div>
-                          </div>
-                          <div class="col">
-                            <label for="validationCustom02" class="form-label">Last name<span>*</span></label>
-                            <input type="text" class="form-control" id="validationCustom02" required>
-                            <div class="valid-feedback">
-                              Looks good!
-                            </div>
-                          </div>
-                  </div>
-                  <div class="row">
-                          <div class="col">
-                            <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mail@simmmple.com">
-                          </div>
-                          <div class="form-outline col">
-                              <label class="form-label" for="typePhone">Phone number input<span>*</span></label>
-                              <input type="tel" id="typePhone" class="form-control" placeholder="enter mobile number"/>
-                          </div>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                       <div class="row"><label>Date of birth<span>*</span></label></div>   
-                      <input class="form-date" type="date" name="date" id="date">
-                      </div>
-                      <div class="col">
-                        <div class="row"><label>Gender<span>*</span></label></div>
-                      <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                          <label class="form-check-label" for="inlineRadio1">male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                          <label class="form-check-label" for="inlineRadio2">female</label>
-                        </div>
-                        </div>
-                  </div>
-                      <form class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label for="TextInput" class="form-label">Qualifications</label>
-                                <input type="text" id="TextInput" class="form-control" placeholder="enter qualifications">
+<!-------------------------------------------add success--------------------------------------------------------------->
+<!-- <div class="modal fade" id="addsuccess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Employee</h1>
+      </div>
+      <div class="modal-body">
+        
+        <p class="warning">Employee details added successfully</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirmadd" class="btn btn-danger" onclick="addempl()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>                     -->
+<!----------------------------------delete---------------------------------------------------------------------------->
+<div class="modal fade" id="db" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Employee</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <p class="warning">Are you sure you want to delete this employee?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-lg" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" id="deletebtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletesucess">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------------------successfully delet---------------------------------------------------------------------------->
+<div class="modal fade" id="deletesucess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Employee</h1>
+      </div>
+      <div class="modal-body">
+        
+        <p class="warning">Deleted successfully</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirmdel" class="btn btn-danger">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------------edit success---------------------------------------------------------------------------------------->
+<div class="modal fade" id="editsuccess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Employee</h1>
+      </div>
+      <div class="modal-body">
+        
+        <p class="warning">Employee details edited and updated successfully</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirmedit" class="btn btn-danger" onclick="editempl()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+                    <!--<div class="container">
+                      <div class="row">
+                          <form class="col col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="details">
+                            <div class="row">
+                              <div class="head">
+                                <h1>Add Employee</h1>
+                                <button><i class="fa-solid fa-xmark"></i></button>
                               </div>
-                        </div>
-                          <div class="col">
-                              <label for="inputAddress2" class="form-label">Address<span>*</span></label>
-                              <input type="text" class="form-control" id="inputAddress2" placeholder="enter address">
                             </div>
-                          <div class="row">  
-                            <div class="col">
-                              <label for="inputState" class="form-label">Country<span>*</span></label>
-                              <select id="inputState" class="form-select">
-                                <option selected>select country</option>
-                                <option>...</option>
-                              </select>
+                            <div class="row-12">
+                              <div class="upload">
+                                <input type="file" class="form-control" id="customFile" />
+                                <div class="text">
+                                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                                  <h1>Upload Image</h1>
+                                  <p>PNG, JPG files are allowed</p>
+                                </div>
+                              </div>
                             </div>
-                            <div class="col">
-                              <label for="inputState" class="form-label">State<span>*</span></label>
-                              <select id="inputState" class="form-select">
-                                <option selected>select state</option>
-                                <option>...</option>
-                              </select>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="validationCustom04" class="form-label">Salutation<span>*</span></label>
+                                    <select class="form-select" id="validationCustom04" required>
+                                      <option selected disabled value="">Select</option>
+                                      <option>...</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                      Please select a valid state.
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                      <label for="validationCustom01" class="form-label">First name<span>*</span></label>
+                                      <input type="text" class="form-control" id="validationCustom01" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <label for="validationCustom02" class="form-label">Last name<span>*</span></label>
+                                      <input type="text" class="form-control" id="validationCustom02" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                      </div>
+                                    </div>
                             </div>
-                          </div> 
-                          <div class="row">
-                            <div class="col">
-                              <label for="inputCity" class="form-label">City<span>*</span></label>
-                              <input type="text" class="form-control" id="inputCity" placeholder="enter city">
+                            <div class="row">
+                                    <div class="col">
+                                      <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
+                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mail@simmmple.com">
+                                    </div>
+                                    <div class="form-outline col">
+                                        <label class="form-label" for="typePhone">Phone number input<span>*</span></label>
+                                        <input type="tel" id="typePhone" class="form-control" placeholder="enter mobile number"/>
+                                    </div>
                             </div>
-                          </form>
-                            <div class="col">
-                              <label for="inputZip" class="form-label">Pin/Zip<span>*</span></label>
-                              <input type="text" class="form-control" id="inputZip" placeholder="enter pin/zip">
+                            <div class="row">
+                                <div class="col">
+                                 <div class="row"><label>Date of birth<span>*</span></label></div>   
+                                <input class="form-date" type="date" name="date" id="date">
+                                </div>
+                                <div class="col">
+                                  <div class="row"><label>Gender<span>*</span></label></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">male</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">female</label>
+                                  </div>
+                                  </div>
                             </div>
+                                <form class="row">
+                                  <div class="col">
+                                      <div class="mb-3">
+                                          <label for="TextInput" class="form-label">Qualifications</label>
+                                          <input type="text" id="TextInput" class="form-control" placeholder="enter qualifications">
+                                        </div>
+                                  </div>
+                                    <div class="col">
+                                        <label for="inputAddress2" class="form-label">Address<span>*</span></label>
+                                        <input type="text" class="form-control" id="inputAddress2" placeholder="enter address">
+                                      </div>
+                                    <div class="row">  
+                                      <div class="col">
+                                        <label for="inputState" class="form-label">Country<span>*</span></label>
+                                        <select id="inputState" class="form-select">
+                                          <option selected>select country</option>
+                                          <option>...</option>
+                                        </select>
+                                      </div>
+                                      <div class="col">
+                                        <label for="inputState" class="form-label">State<span>*</span></label>
+                                        <select id="inputState" class="form-select">
+                                          <option selected>select state</option>
+                                          <option>...</option>
+                                        </select>
+                                      </div>
+                                    </div> 
+                                    <div class="row">
+                                      <div class="col">
+                                        <label for="inputCity" class="form-label">City<span>*</span></label>
+                                        <input type="text" class="form-control" id="inputCity" placeholder="enter city">
+                                      </div>
+                                    </form>
+                                      <div class="col">
+                                        <label for="inputZip" class="form-label">Pin/Zip<span>*</span></label>
+                                        <input type="text" class="form-control" id="inputZip" placeholder="enter pin/zip">
+                                      </div>
+                                    </div>
+                                  <div class="row">
+                                      <div class="col">
+                                          <div class="side">
+                                          <button type="button" class="btn btn-light btn-lg">Cancel</button>
+                                          <button type="button" class="button btn btn-lg">Add Employee</button>
+                                      </div>
+                                  </div>
+                              </div>
                           </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="side">
-                                <button type="button" class="btn btn-light btn-lg">Cancel</button>
-                                <button type="button" class="button btn btn-lg">Add Employee</button>
-                            </div>
-                        </div>
+                      </div>-->
+<!-------------------------------------------editing form---------------------------------------------------------------->
+<div class="modal fade" id="updateform" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Employee</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form id="edit-modal" method="get">
+        <div class="row-12">
+          <div class="col-3">
+          <div class="upload">
+            <input type="file" class="form-control" id="customFile" />
+            <div class="text">
+              <img src="project.img/form.dp.png">
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="edit-salutation" class="form-label">Salutation<span>*</span></label>
+                <select class="form-select" id="edit-salutation" required>
+                  <option disabled selected value="">Select</option>
+                  <option>Mr.</option>
+                  <option>Mrs.</option>
+                  <option>Ms.</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid state.
+                </div>
+              </div>
+              <div class="col">
+                  <label for="edit-firstname" class="form-label">First name<span>*</span></label>
+                  <input type="text" class="form-control" id="edit-firstname" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col">
+                  <label for="edit-secname" class="form-label">Last name<span>*</span></label>
+                  <input type="text" class="form-control" id="edit-secname" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col">
+                  <label for="edit-mail" class="form-label">Email address<span>*</span></label>
+                  <input type="email" class="form-control" id="edit-mail" name="edit-mail" aria-describedby="emailHelp" placeholder="mail@simmmple.com">
+                </div>
+                <div class="form-outline col">
+                    <label class="form-label" for="edit-phone">Phone number input<span>*</span></label>
+                    <input type="tel" id="edit-phone" class="form-control" placeholder="enter mobile number"/>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col">
+             <div class="row"><label>Date of birth<span>*</span></label></div>   
+            <input class="form-date" type="date" name="date" id="edit-date">
+            </div>
+            <div class="col">
+              <div class="row"><label>Gender<span>*</span></label></div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="edit-gender" id="inlineRadio3" value="option1">
+                <label class="form-check-label" for="inlineRadio1">male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="edit-gender" id="inlineRadio4" value="option2">
+                <label class="form-check-label" for="inlineRadio2">female</label>
+              </div>
+              </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="edit-username" class="form-label">Username<span>*</span></label>
+            <input type="text" class="form-control" id="edit-username" placeholder="Username">
+          </div>
+          <div class="form-outline col">
+            <label class="form-label" for="edit-password">Password<span>*</span></label>
+            <input type="password" id="edit-password" class="form-control" placeholder="password"/>
+          </div>
+        </div>
+            <form class="row">
+              <div class="col">
+                  <div class="mb-3">
+                      <label for="edit-qualification" class="form-label">Qualifications</label>
+                      <input type="text" id="edit-qualification" class="form-control" placeholder="enter qualifications">
                     </div>
+              </div>
+                <div class="col">
+                    <label for="edit-Address" class="form-label">Address<span>*</span></label>
+                    <input type="text" class="form-control" id="edit-Address" placeholder="enter address">
+                  </div>
+                <div class="row">  
+                  <div class="col">
+                    <label for="edit-country" class="form-label">Country<span>*</span></label>
+                    <select id="edit-country" class="form-select">
+                      <option disabled selected>select country</option>
+                      <option>USA</option>
+                      <option>India</option>
+                      <option>UAE</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label for="edit-state" class="form-label">State<span>*</span></label>
+                    <select id="edit-state" class="form-select">
+                      <option disabled selected>select state</option>
+                       <option>IL</option>
+                      <option>TX</option>
+                      <option>WA</option>
+                      <option>Kerala</option>
+                    </select>
+                  </div>
+                </div> 
+                <div class="row">
+                  <div class="col">
+                    <label for="edit-place" class="form-label">City<span>*</span></label>
+                    <input type="text" class="form-control" id="edit-place" placeholder="enter city">
+                  </div>
+                </form>
+                  <div class="col">
+                    <label for="edit-pin" class="form-label">Pin/Zip<span>*</span></label>
+                    <input type="text" class="form-control" id="edit-pin" placeholder="enter pin/zip">
+                  </div>
+
+      <!-- <div class="row-12">
+        <div class="upload">
+          <input type="file" class="form-control" id="customFile" />
+          <div class="text">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <h1>Upload Image</h1>
+            <p>PNG, JPG files are allowed</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-3">
+              <label for="validationCustom04" class="form-label">Salutation<span>*</span></label>
+              <select class="form-select" id="salutation" required>
+                <option disabled selected value="">Select</option>
+                <option>Mr.</option>
+                <option>Mrs.</option>
+                <option>Ms.</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid state.
+              </div>
+            </div>
+            <div class="col">
+                <label for="validationCustom01" class="form-label">First name<span>*</span></label>
+                <input type="text" class="form-control" id="firstname" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col">
+                <label for="validationCustom02" class="form-label">Last name<span>*</span></label>
+                <input type="text" class="form-control" id="lastname" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+      </div>
+      <div class="row">
+              <div class="col">
+                <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mail@simmmple.com">
+              </div>
+              <div class="form-outline col">
+                <label class="form-label" for="typePhone">Phone number input<span>*</span></label>
+                <input type="tel" id="typePhone" class="form-control" placeholder="enter mobile number"/>
+              </div>
+      </div>
+      <div class="row">
+          <div class="col">
+            <div class="row"><label>Date of birth<span>*</span></label></div>   
+            <input class="form-date" type="date" name="date" id="date">
+          </div>
+          <div class="col">
+            <div class="row"><label>Gender<span>*</span></label></div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+              <label class="form-check-label" for="inlineRadio1">male</label>
+          </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+              <label class="form-check-label" for="inlineRadio2">female</label>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="Username" class="form-label">Username<span>*</span></label>
+          <input type="text" class="form-control" id="Username" placeholder="Username">
+        </div>
+        <div class="form-outline col">
+          <label class="form-label" for="password">Password<span>*</span></label>
+          <input type="password" id="password" class="form-control" placeholder="password"/>
+        </div>
+      </div>
+          <form class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="TextInput" class="form-label">Qualifications</label>
+                    <input type="text" id="TextInput" class="form-control" placeholder="enter qualifications">
+                  </div>
+            </div>
+              <div class="col">
+                  <label for="inputAddress2" class="form-label">Address<span>*</span></label>
+                  <input type="text" class="form-control" id="inputAddress2" placeholder="enter address">
+                </div>
+              <div class="row">  
+                <div class="col">
+                  <label for="inputcountry" class="form-label">Country<span>*</span></label>
+                  <select id="inputcountry" class="form-select">
+                    <option disabled selected>select country</option>
+                    <option>USA</option>
+                    <option>India</option>
+                    <option>UAE</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <label for="inputState" class="form-label">State<span>*</span></label>
+                  <select id="inputState" class="form-select">
+                    <option disabled selected>select state</option>
+                    <option>IL</option>
+                    <option>TX</option>
+                    <option>WA</option>
+                    <option>Kerala</option>
+                  </select>
+                </div>
+              </div> 
+              <div class="row">
+                <div class="col">
+                  <label for="inputCity" class="form-label">City<span>*</span></label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="enter city">
+                </div>
+              
+                <div class="col">
+                  <label for="inputpin" class="form-label">Pin/Zip<span>*</span></label>
+                  <input type="text" class="form-control" id="inputpin" placeholder="enter pin/zip">
+                </div>
+    </div>
+    </form> -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+      <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editsuccess">Add Employee</button>
+    </div>
+  </div>
+  </div>
+  </div>
+
+</div>
+
+                      <!--<div class="container-xl">
+                        <div class="row">
+                            <form class="col col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div class="details">
+                              <div class="row">
+                                <div class="head">
+                                  <h1>Edit Employee</h1>
+                                  <button><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                              </div>
+                              <div class="row-12">
+                                <div class="col-3">
+                                <div class="upload">
+                                  <input type="file" class="form-control" id="customFile" />
+                                  <div class="text">
+                                    <img src="project.img/form.dp.png">
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-3">
+                                      <label for="validationCustom04" class="form-label">Salutation<span>*</span></label>
+                                      <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Select</option>
+                                        <option>...</option>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                        Please select a valid state.
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="validationCustom01" class="form-label">First name<span>*</span></label>
+                                        <input type="text" class="form-control" id="validationCustom01" required>
+                                        <div class="valid-feedback">
+                                          Looks good!
+                                        </div>
+                                      </div>
+                                      <div class="col">
+                                        <label for="validationCustom02" class="form-label">Last name<span>*</span></label>
+                                        <input type="text" class="form-control" id="validationCustom02" required>
+                                        <div class="valid-feedback">
+                                          Looks good!
+                                        </div>
+                                      </div>
+                              </div>
+                              <div class="row">
+                                      <div class="col">
+                                        <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mail@simmmple.com">
+                                      </div>
+                                      <div class="form-outline col">
+                                          <label class="form-label" for="typePhone">Phone number input<span>*</span></label>
+                                          <input type="tel" id="typePhone" class="form-control" placeholder="enter mobile number"/>
+                                      </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col">
+                                   <div class="row"><label>Date of birth<span>*</span></label></div>   
+                                  <input class="form-date" type="date" name="date" id="date">
+                                  </div>
+                                  <div class="col">
+                                    <div class="row"><label>Gender<span>*</span></label></div>
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                      <label class="form-check-label" for="inlineRadio1">male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                      <label class="form-check-label" for="inlineRadio2">female</label>
+                                    </div>
+                                    </div>
+                              </div>
+                                  <form class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="TextInput" class="form-label">Qualifications</label>
+                                            <input type="text" id="TextInput" class="form-control" placeholder="enter qualifications">
+                                          </div>
+                                    </div>
+                                      <div class="col">
+                                          <label for="inputAddress2" class="form-label">Address<span>*</span></label>
+                                          <input type="text" class="form-control" id="inputAddress2" placeholder="enter address">
+                                        </div>
+                                      <div class="row">  
+                                        <div class="col">
+                                          <label for="inputState" class="form-label">Country<span>*</span></label>
+                                          <select id="inputState" class="form-select">
+                                            <option selected>select country</option>
+                                            <option>...</option>
+                                          </select>
+                                        </div>
+                                        <div class="col">
+                                          <label for="inputState" class="form-label">State<span>*</span></label>
+                                          <select id="inputState" class="form-select">
+                                            <option selected>select state</option>
+                                            <option>...</option>
+                                          </select>
+                                        </div>
+                                      </div> 
+                                      <div class="row">
+                                        <div class="col">
+                                          <label for="inputCity" class="form-label">City<span>*</span></label>
+                                          <input type="text" class="form-control" id="inputCity" placeholder="enter city">
+                                        </div>
+                                      </form>
+                                        <div class="col">
+                                          <label for="inputZip" class="form-label">Pin/Zip<span>*</span></label>
+                                          <input type="text" class="form-control" id="inputZip" placeholder="enter pin/zip">
+                                        </div>
+                                      </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="side">
+                                            <button type="button" class="btn btn-light btn-lg">Cancel</button>
+                                            <button type="button" class="button btn btn-lg">Add Employee</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+<!----------------deletion--------------------------------------------------------------------------------------------->
+
+<!-- <div class="modal fade" id="deleteBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Employee</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="warning">Are you sure you want to delete this employee?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-lg" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+                        <!--<div class="container">
+                          <div class="row">
+                            <form class="col-5">
+                              <div class="row">
+                                <div class="delete-detail">
+                                <div class="head">
+                                  <h1>Delete Employee</h1>
+                                  <button><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <p class="warning">Are you sure you want to delete this employee?</p>
+                                <div class="row-6">
+                                  <div class="col">
+                                      <div class="side">
+                                        <button type="button" class="btn btn-light btn-lg">Cancel</button>
+                                        <button type="button" class="btn btn-danger btn-lg">Delete</button>
+                                      </div>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>    
+                        </div>-->
+<!---------------------output page--------------------------------------------------------------------------------------->              
+                        <!--<div class="container-xxl">
+                          <div class="output-form">
+                            <div class="background">
+                              <img src="project.img/blue Background.png">
+                            </div>
+                            <div class="profile">
+                              <img src="project.img/Avatar.png">
+                              <h5>Mr. Michael Johnson</h5>
+                              <p>michaeljohnson@example.com</p>
+                            </div>
+                            <div class="general">
+                              <div class="info">
+                                <h6>Gender</h6>
+                                <p>Male</p>
+                              </div>
+                              <div class="info">
+                                <h6>Age</h6>
+                                <p>38</p>
+                              </div>
+                              <div class="info">
+                                <h6>Date of Birth</h6>
+                                <p>20 December 1985</p>
+                              </div>
+                            </div>
+                            
+                              <div class="general">
+                              <div class="info">
+                                <h6>Mobile Number</h6>
+                                <p>9876543210</p>
+                              </div>
+                              <div class="info">
+                                <h6>Qualifications</h6>
+                                <p>Bachelor's Degree</p>
+                              </div>
+                            </div>
+                              <div class="general">
+                              <div class="info">
+                                <h6>Address</h6>
+                                <p>789 Pine St Dummy Address,
+                                  Chicago, Texas, USA 123456</p>
+                              </div>
+                              <div class="info">
+                                <h6>Username</h6>
+                                <p>michaeljohnson</p>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                  <div class="side">
+                                  <button type="button" class="btn btn-danger btn-lg">Delete</button>
+                                  <button type="button" class="button btn btn-lg">Add Details</button>
+                                  </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>-->
                 </div>
             </div>
+
+              </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+        <script src="index.js"></script>
+        <script src="view.js"></script>
+        
     </body>
 </html>
